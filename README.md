@@ -22,6 +22,12 @@ Slash(/)는 자연어 질문과 `/` 슬래시 명령어를 한 입력창에서 �
 
 기준은 하나입니다. **두 개 이상의 저장소가 합의해야 하는 내용이면 여기, 한 저장소 안에서 끝나는 내용이면 그 저장소 README.** API 계약을 `slash-api`에만 두면 프론트·에이전트 담당이 보지 않고, 7곳에 복사하면 곧바로 어긋납니다.
 
+## 문서 목록
+
+| 문서 | 내용 |
+|---|---|
+| [`text-summary-execution-contract.md`](./text-summary-execution-contract.md) | `TEXT_SUMMARY`(`/summary`)가 브라우저·PC·서버 중 어디서 실행되는지와 실행 위치별 결과 스키마 — `web`·`api`·`nlu`·`runner` 공통 계약 |
+
 ## 관련 저장소
 
 | 저장소 | 역할 |
