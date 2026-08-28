@@ -3,6 +3,14 @@
 Slash(/)는 자연어 질문과 `/` 슬래시 명령어를 한 입력창에서 처리하는 AI 비서 서비스입니다.
 이 저장소는 **어느 한 저장소에도 속하지 않는 공통 문서** 파트를 담당합니다.
 
+## 역할
+
+- 두 개 이상의 저장소가 합의해야 하는 계약 문서 보관
+- 저장소 간 판단이 필요한 사안의 논의 기록(마스터 이슈)
+- 전체 아키텍처·데이터 흐름·ERD
+
+한 저장소 안에서 끝나는 내용은 다루지 않습니다 — 그것은 해당 저장소 README 몫입니다.
+
 ## 시스템 한눈에 보기
 
 ```
@@ -59,18 +67,6 @@ Slash(/)는 자연어 질문과 `/` 슬래시 명령어를 한 입력창에서 �
 |---|---|
 | [`text-summary-execution-contract.md`](./text-summary-execution-contract.md) | `TEXT_SUMMARY`(`/summary`)가 브라우저·PC·서버 중 어디서 실행되는지와 실행 위치별 결과 스키마 — `web`·`api`·`nlu`·`runner` 공통 계약 |
 
-## 관련 저장소
-
-| 저장소 | 역할 |
-|---|---|
-| [slash-web](https://github.com/LikeLionTeam4/slash-web) | 웹 클라이언트 — React·Vite UI, S3/CloudFront 배포 |
-| [slash-api](https://github.com/LikeLionTeam4/slash-api) | 코어 API — 인증, 작업 관리, 실행 위치 결정, DB 연동 |
-| [slash-nlu](https://github.com/LikeLionTeam4/slash-nlu) | 자연어 분석 — slash 명령 파싱, 규칙·Kiwi 의도 분류, 인자 추출, CPU 추출 요약 |
-| [slash-llm](https://github.com/LikeLionTeam4/slash-llm) | LLM 서비스 — Gemma 추론. **2026-08-25 dev 배포 제거**, 기능 동결 |
-| [slash-runner](https://github.com/LikeLionTeam4/slash-runner) | PC 작업 실행기 — 파일 검색·위치 열기·상태 조회·로컬 CLI 실행. Python·PyInstaller |
-| [slash-infra](https://github.com/LikeLionTeam4/slash-infra) | 인프라 — Terraform(AWS), Helm·ArgoCD 배포 |
-| **slash-docs** (현재) | 프로젝트 문서 — 아키텍처, API 계약, ERD, 회의록 |
-
 ## 마스터 이슈
 
 | 이슈 | 내용 |
@@ -78,3 +74,15 @@ Slash(/)는 자연어 질문과 `/` 슬래시 명령어를 한 입력창에서 �
 | [#3](https://github.com/LikeLionTeam4/slash-docs/issues/3) | LLM 실행 구조 전환과 분산 처리 체계 구축 — 클라우드 GPU 제거, 요약 3분산, 로컬 CLI 보안 경계, 원문 저장 정책이 이 스레드에서 확정됐습니다 |
 
 저장소 간 판단이 필요한 사안은 이 이슈에서 근거와 함께 합의합니다.
+
+## 관련 저장소
+
+| 저장소 | 역할 |
+|---|---|
+| [slash-web](https://github.com/LikeLionTeam4/slash-web) | 웹 클라이언트 — React·Vite UI, S3/CloudFront 배포 |
+| [slash-api](https://github.com/LikeLionTeam4/slash-api) | 코어 API — 인증, 작업 원장, 실행 위치 결정, WSS 게이트웨이 |
+| [slash-nlu](https://github.com/LikeLionTeam4/slash-nlu) | 자연어 분석 — slash 명령 파싱, 규칙·Kiwi 의도 분류, 인자 추출, CPU 추출 요약 |
+| [slash-llm](https://github.com/LikeLionTeam4/slash-llm) | LLM 서비스 — Gemma 추론. 2026-08-25 dev 배포 제거, 기능 동결 |
+| [slash-runner](https://github.com/LikeLionTeam4/slash-runner) | PC 작업 실행기 — 파일 검색·위치 열기·상태 조회·로컬 CLI 실행. Python·PyInstaller |
+| [slash-infra](https://github.com/LikeLionTeam4/slash-infra) | 인프라 — Terraform(AWS), Helm·ArgoCD 배포 |
+| **slash-docs** (현재) | 프로젝트 문서 — 아키텍처, API 계약, ERD, 회의록 |
